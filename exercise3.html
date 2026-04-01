@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Background Color Changer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="p-10 transition-colors duration-300">
+    <div class="space-y-6">
+      <h2 class="text-xl font-bold text-gray-800">Choose Background Color</h2>
+
+      <div class="flex gap-4">
+        <!-- Red Button -->
+        <button
+          id="redBtn"
+          class="bg-red-500 hover:bg-red-600 text-white font-semibold px-6 py-2 rounded-lg transition-colors"
+        >
+          Red
+        </button>
+
+        <!-- Green Button -->
+        <button
+          id="greenBtn"
+          class="bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-2 rounded-lg transition-colors"
+        >
+          Green
+        </button>
+
+        <!-- Blue Button -->
+        <button
+          id="blueBtn"
+          class="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-2 rounded-lg transition-colors"
+        >
+          Blue
+        </button>
+      </div>
+
+      <!-- Optional: Display current color -->
+      <p id="colorDisplay" class="text-gray-600 text-sm">
+        Current background: White
+      </p>
+    </div>
+
+    <script>
+      // Select all buttons
+      const redButton = document.getElementById("redBtn");
+      const greenButton = document.getElementById("greenBtn");
+      const blueButton = document.getElementById("blueBtn");
+      const colorDisplay = document.getElementById("colorDisplay");
+
+      // Add click event listeners to each button
+      redButton.addEventListener("click", function () {
+        document.body.style.backgroundColor = "red";
+        colorDisplay.textContent = "Current background: Red";
+      });
+
+      greenButton.addEventListener("click", function () {
+        document.body.style.backgroundColor = "green";
+        colorDisplay.textContent = "Current background: Green";
+      });
+
+      blueButton.addEventListener("click", function () {
+        document.body.style.backgroundColor = "blue";
+        colorDisplay.textContent = "Current background: Blue";
+      });
+    </script>
+  </body>
+</html>
