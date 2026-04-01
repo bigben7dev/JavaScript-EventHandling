@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Character Counter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="p-10">
+    <div class="space-y-4 max-w-md">
+      <h2 class="text-xl font-bold text-gray-800">Character Counter</h2>
+
+      <textarea
+        id="userInput"
+        rows="5"
+        class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500"
+        placeholder="Start typing here..."
+      ></textarea>
+
+      <p id="charCount" class="text-gray-600 text-sm">Characters typed: 0</p>
+    </div>
+  </body>
+  <script>
+    const textarea = document.getElementById("userInput");
+    const charCountDisplay = document.getElementById("charCount");
+
+    textarea.addEventListener("input", function (event) {
+      // Get the current text length from the textarea
+      const characterCount = event.target.value.length;
+
+      // Update the paragraph with the character count
+      charCountDisplay.textContent = `Characters typed: ${characterCount}`;
+    });
+  </script>
+</html>
