@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Form Validation</title>
+  </head>
+  <body class="bg-gray-200">
+    <div
+      class="bg-purple-200 mt-20 mx-auto max-w-md ring-2 ring-blue-200 rounded-xl p-6"
+    >
+      <form id="myForm" class="flex flex-col gap-4">
+        <h2 class="text-center font-bold text-xl">Name Input Form</h2>
+
+        <!-- Message display area -->
+        <div
+          id="message"
+          class="text-center text-lg font-semibold text-red-600 min-h-12"
+        ></div>
+
+        <input
+          type="text"
+          id="nameInput"
+          name="name"
+          placeholder="Enter your name"
+          class="border rounded-md px-6 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter your Email"
+          class="border rounded-md px-6 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+
+        <button
+          type="submit"
+          class="bg-blue-600 text-white rounded-md h-12 w-20 mx-auto hover:bg-blue-700 transition"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+
+    <script>
+      const form = document.getElementById("myForm");
+
+      const nameInput = document.getElementById("nameInput");
+      const emailInput = document.getElementById("email");
+
+      const messageDiv = document.getElementById("message");
+
+      // Add submit event listener to the form
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const name = nameInput.value.trim();
+        const email = emailInput.value.trim();
+
+        if (name === "") {
+          // Show error message
+          messageDiv.textContent = "Name is required";
+          messageDiv.className =
+            "text-center text-lg font-semibold text-red-600 min-h-12";
+        } else if (email === "") {
+          messageDiv.textContent = "Email is required";
+          messageDiv.style = "font-size:1rem ";
+        } else {
+          // Show welcome message
+          messageDiv.textContent = `Welcome, ${name}!`;
+          messageDiv.style = "font-size:1rem; color:green;";
+
+          // Optional: Clear the input after successful submission
+          nameInput.value = "";
+          emailInput.value = "";
+        }
+      });
+    </script>
+  </body>
+</html>
